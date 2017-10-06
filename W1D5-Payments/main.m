@@ -1,13 +1,10 @@
-//
-//  main.m
-//  W1D5-Payments
-//
-//  Created by Mar Koss on 2017-10-06.
-//  Copyright © 2017 Mar Koss. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import "PaymentGateway.h"
+#import "AmazonPaymentService.h"
+#import "PaypalPaymentService.h"
+#import "StripePaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -26,9 +23,33 @@ int main(int argc, const char * argv[]) {
         NSLog(@"you picked: %i",payInputInt);
 
         PaymentGateway *payGate1 = [PaymentGateway new];
+
         
-        [payGate1 processPaymentAmount:payInputInt];
+        AmazonPaymentService *amazonPay = [AmazonPaymentService new];
+        PaypalPaymentService *paypalPay = [PaypalPaymentService new];
+        StripePaymentService *stripePay = [StripePaymentService new];
+
         
+        
+        //user input selects payment type
+        
+        switch (payInputInt) {
+            case 1:
+                payGate1.paymentDelegate = amazonPay;
+                break;
+            case 2:
+                payGate1.paymentDelegate = paypalPay;
+                break;
+            case 3:
+                payGate1.paymentDelegate = stripePay;
+                break;
+                
+            default:
+                payGate1 = NULL;
+                break;
+        }
+        
+                [payGate1 processPaymentAmount:payInputInt];
         
         
         

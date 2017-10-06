@@ -70,14 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				0D7AD9FD1F88242600EAF671 /* main.m */,
-				0D7ADA071F882FB100EAF671 /* StripePaymentService.h */,
-				0D7ADA081F882FB100EAF671 /* StripePaymentService.m */,
+				0D7ADA041F882E2B00EAF671 /* PaymentGateway.h */,
+				0D7ADA051F882E2B00EAF671 /* PaymentGateway.m */,
 				0D7ADA0A1F882FC600EAF671 /* AmazonPaymentService.h */,
 				0D7ADA0B1F882FC600EAF671 /* AmazonPaymentService.m */,
 				0D7ADA0D1F882FD200EAF671 /* PaypalPaymentService.h */,
 				0D7ADA0E1F882FD200EAF671 /* PaypalPaymentService.m */,
-				0D7ADA041F882E2B00EAF671 /* PaymentGateway.h */,
-				0D7ADA051F882E2B00EAF671 /* PaymentGateway.m */,
+				0D7ADA071F882FB100EAF671 /* StripePaymentService.h */,
+				0D7ADA081F882FB100EAF671 /* StripePaymentService.m */,
 			);
 			path = "W1D5-Payments";
 			sourceTree = "<group>";
