@@ -7,11 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaymentGateway.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
-        int price = arc4random_uniform(1000) + 100;
+        int priceInput = arc4random_uniform(1000) + 100;
+        
+        NSLog(@"Thank you for shopping at Acme.com Your total today is $%i Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon", priceInput);
+        
+        //User select payment method
+        
+        char payInput[100];
+        fgets (payInput, 100, stdin);
+        
+        
+        int payInputInt = (payInput[0] - '0');
+        NSLog(@"you picked: %i",payInputInt);
+
+        PaymentGateway *payGate1 = [PaymentGateway new];
+        
+        [payGate1 processPaymentAmount:payInputInt];
+        
         
         
         
