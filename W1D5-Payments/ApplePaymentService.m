@@ -1,20 +1,20 @@
 
-#import "StripePaymentService.h"
+#import "ApplePaymentService.h"
 
-@implementation StripePaymentService 
+@implementation ApplePaymentService
 
 -(instancetype) init {
-        self = [super init];
-        if (self) {
-            _name = @"Stripe";
-        }
-        return self;
+    self = [super init];
+    if (self) {
+        _name = @"Apple";
     }
-
+    return self;
+}
 
 -(void)processPaymentAmount:(NSInteger)amount{
     
-        NSLog(@"Stripe");
+    NSLog(@"Apple");
+    
 }
 
 -(BOOL)canProcessPayment {

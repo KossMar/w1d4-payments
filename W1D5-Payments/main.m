@@ -3,15 +3,20 @@
 #import <Foundation/Foundation.h>
 #import "PaymentGateway.h"
 #import "AmazonPaymentService.h"
+#import "ApplePaymentService.h"
 #import "PaypalPaymentService.h"
 #import "StripePaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
+        BOOL programRun = YES;
+        
+        while (programRun == YES) {
+        
         int priceInput = arc4random_uniform(1000) + 100;
         
-        NSLog(@"Thank you for shopping at Acme.com Your total today is $%i Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon", priceInput);
+        NSLog(@"Thank you for shopping at Acme.com Your total today is $%i Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon, 4: Apple", priceInput);
         
         //User select payment method
         
@@ -26,6 +31,7 @@ int main(int argc, const char * argv[]) {
 
         
         AmazonPaymentService *amazonPay = [AmazonPaymentService new];
+            ApplePaymentService *applePay = [ApplePaymentService new];
         PaypalPaymentService *paypalPay = [PaypalPaymentService new];
         StripePaymentService *stripePay = [StripePaymentService new];
 
@@ -46,13 +52,14 @@ int main(int argc, const char * argv[]) {
                 
             default:
                 payGate1 = NULL;
+                NSLog(@"Not a valid entry. Try again");
                 break;
         }
         
-                [payGate1 processPaymentAmount:payInputInt];
+                [payGate1 processPaymentAmount:priceInput];
         
         
-        
+        }
     }
     return 0;
 }

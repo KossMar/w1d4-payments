@@ -6,7 +6,9 @@
 
 @protocol PaymentDelegate <NSObject>
 
--(void)someMethod;
+-(void)processPaymentAmount:(NSInteger)amount;
+-(BOOL)canProcessPayment;
+-(NSString*)name; //if you don't list this explicitly then this class can't ask for the delegate's name!
 
 @end
 
